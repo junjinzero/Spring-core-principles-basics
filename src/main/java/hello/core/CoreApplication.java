@@ -10,5 +10,6 @@ public class CoreApplication {
 		SpringApplication.run(CoreApplication.class, args);
 	}
 	//test
+	//test
 
 }
