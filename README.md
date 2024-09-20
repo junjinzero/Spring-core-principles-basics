@@ -127,3 +127,14 @@
 ## 6강 프로젝트 생성
 - settings > gradle
 - > build and run using / run test using 을 인텔리제이로 설정해준다 
+
+## 7강 회원 도메인 개발
+- DB 설정이 되지 않았기 때문에 우선 MemoryMemberRepository 를 사용하여 개발한다.
+- 회원 등급을 나타내는 Grade enum
+- service, repository 를 interface 로 생성한 뒤 상속받는 class 생성
+
+## 8강 회원 도메인 실행과 테스트 
+- 순수 java 로 테스트를 해볼 수도 있지만 (MemberApp.java) 
+- jUnit 을 사용, 테스트 코드를 작성하여 테스트 하는게 좋다. 
+> 회원 도메인 설계의 문제점  
+-> 의존관계가 인터페이스 뿐만 아니라 구현까지 모두 의존하는 문제점이 있다. 
