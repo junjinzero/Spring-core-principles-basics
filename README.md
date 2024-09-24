@@ -161,7 +161,20 @@
 - jUnit 으로 하는 단위테스트가 더 빠름
 - jUnit 테스트 코드를 잘 짜는게 중요하다.
 
-~~## 12 새로운 할인 정책 개발
+## 12 새로운 할인 정책 개발
 - 정액 할인 정책에서 정률 할인 정책으로 
 - Assertions 는 static 으로 추가해주는게 좋음
 - 테스트 코드 작성 시에는 항상 성공 케이스와 실패 케이스 모두 시험해봐야 함~~
+
+## 13 새로운 할인 정책 적용과 문제점
+- 역할, 구현을 분리했지만 
+- 추상(인터페이스) 뿐만 아니라 **구체(구현) 클래스**에도 의존하고 있다
+  - 추상(인터페이스) 의존 : DiscountPolicy
+  - 구체(구현) 클래스 : FixDiscountPolicy, RateDiscountPolicy
+- 클라이언트인 OrderServiceImpl 이 DiscountPolicy, FixDiscountPolicy 모두 의존하고 있다. 
+  - --> DIP 위반
+  - --> 그래서 정책을 변경하게 되면 OrderServiceImpl 도 변경이 발생한다. --> OCP 위반 
+- OrderServiceImpl 이 DiscountPolicy 추상(인터페이스) 에만 의존하도록 의존 관계를 변경한다.
+- 값을 할당해주지 않기 때문에 NPE 가 발생한다. 
+  - 클라이언트인 OrderServiceImpl에 DiscountPolicy의 구현 객체를 대신 생성하고 주입해줘야 한다.
+- -> 누가? 어떻게? 
