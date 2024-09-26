@@ -190,3 +190,8 @@
     - ```MemberServiceImpl``` -> ```MemoryMemberRepository```
     - ```OrderServiceImpl``` -> ```MemoryMemberRepository```, ```FixDiscountPolicy```
 - 각 Impl (구현체) 들은 기능을 실행하는 책임만 지면 된다. 
+
+## 15강 AppConfig 리팩터링
+- 현재 AppConfig 는 **중복** 이 있고, **역할에 따른 구현** 이 명확하게 보이지 않는다.
+- ```new MemoryMemberRepository()``` 부분의 중복을 제거함 -> ```MemoryMemberRepository```를 다른 구현체로 변경할 때 한 부분만 변경하면 된다.
+- ```AppConfig```를 보면 역할과 구현 클래스가 한 눈에 들어와, 애플리케이션 전체 구성이 어떻게 되어 있는지 빠르게 파악할 수 있다. 
