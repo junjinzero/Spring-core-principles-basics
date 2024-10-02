@@ -314,3 +314,12 @@ ROLE_APPLICATION    : 직접 등록한 애플리케이션 빈
 ROLE_INFRASTRUCTURE : 스프링이 내부에서 사용한 빈
 ```
 
+## 23강 스프링 빈 조회 - 기본 
+
+- 역할과 구현. 구현에 의존하지 말고 역할에 의존해야함.
+- Impl 구체클래스로 조회도 가능하지만 권장하지는 않는 이유 
+```
+assertThrows(NoSuchBeanDefinitionException.class,
+          () -> ac.getBean("xxxxx", MemberService.class));
+```
+- ```assertThrows``` 는 에러가 터져야 테스트가 성공한거 
