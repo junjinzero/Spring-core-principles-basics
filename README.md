@@ -330,3 +330,8 @@ assertThrows(NoSuchBeanDefinitionException.class,
   - -> 이 때는 빈 이름을 지정하자.
 - ```ac.getBeansOfType()```을 사용하면 해당 타입의 모든 빈을 조회할 수 있다.
 - class 안에 static class 를 만들었다 -> 해당 클래스 안에서만 이 static 클래스를 사용하겠다
+
+## 25강 스프링 빈 조회 - 상속관계
+
+- 부모 타입으로 조회하면, 자식 타입도 함께 조회한다.
+- 그래서 모든 자바 객체의 최고 부모인 ```object```타입으로 조회하면, 모든 스프링 빈을 조회한다. 
