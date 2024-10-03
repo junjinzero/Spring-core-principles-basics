@@ -323,3 +323,10 @@ assertThrows(NoSuchBeanDefinitionException.class,
           () -> ac.getBean("xxxxx", MemberService.class));
 ```
 - ```assertThrows``` 는 에러가 터져야 테스트가 성공한거 
+
+## 24강 스프링 빈 조회 - 동일한 타입이 둘 이상
+
+- 타입으로 조회 시 같은 타입의 스프링 빈이 둘 이상이면 오류가 발생한다.
+  - -> 이 때는 빈 이름을 지정하자.
+- ```ac.getBeansOfType()```을 사용하면 해당 타입의 모든 빈을 조회할 수 있다.
+- class 안에 static class 를 만들었다 -> 해당 클래스 안에서만 이 static 클래스를 사용하겠다
