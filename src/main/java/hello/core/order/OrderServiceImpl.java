@@ -14,7 +14,6 @@ public class OrderServiceImpl implements OrderService{
         this.discountPolicy = discountPolicy;
     }
 
-
     // 주문 생성 요청이 오면, 회원 정보를 먼저 조회하고,
     // 해당 멤버의 등급을 찾아 할인 정책을 적용한 결과 금액을 받아 온다.
     @Override
@@ -23,5 +22,10 @@ public class OrderServiceImpl implements OrderService{
         int discountPrice = discountPolicy.discount(member, itemPrice);
 
         return new Order(memberId, itemName, itemPrice, discountPrice);
+    }
+
+    // for test
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
     }
 }
