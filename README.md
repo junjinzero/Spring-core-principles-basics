@@ -820,3 +820,26 @@ setNoBean3 = Optional.empty
   아마 원하는 것이 이런 것은 아닐 것이다.
 - 프로토타입 빈을 주입 시점에만 새로 생성하는게 아니라, 사용할 때 마다 새로 생성해서 사용하는 것을 원할 것이다.
 
+## 55강 프로토타입 스코프 - 싱글톤 빈과 함께 사용시 Provider로 문제 해결
+### ObjectFactory, Object
+- ObjectFactory : 기능이 단순, 별도의 라이브러리 필요 없음, 스프링에 의존
+- ObjectProvider : ObjectFactory 를 상속, 옵션, 스트림 처리 등의 편의 기능이 많고, 별도의 라이브러리 필요 없음, 스프링에 의존
+
+### JSR-330 Provider
+- 자바 표준을 사용하는 방법
+- ```javax.inject.Provider```
+- **스프링 부트 3.x 부터는 ```implementation 'jakarta.inject:jakarta.inject-api:2.0.1```  사용**
+
+
+## 56강 웹 스코프
+- 웹 스코프는 웹 환경에서만 동작한다
+- 웹 스코프는 프로토타입과 다르게 스프링이 해당 스코프의 종료시점까지 관리한다. 따라서 종료 메서드가 호출된다
+
+- 웹 스코프 종류
+  - `request` : HTTP 요청 하나가 들어오고 나갈 때까지 유지되는 스코프. 각각의 HTTP 요청마다 별도의 빈 인스턴스가 생성되고, 관리된다.
+  - `session` : HTTP Seession과 동일한 생명주기를 가지는 스코프
+  - `application` : 서블릿 컨텍스트(`ServletContext`) 와 동일한 생명주기를 가지는 스코프
+  - `websocket` : 웹 소켓과 동일한 생명주기를 가지는 스코프 
+
+## 57강 request 스코프 예제 만들기 
+
